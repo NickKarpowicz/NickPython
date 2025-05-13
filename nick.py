@@ -1,4 +1,5 @@
 import numpy as np
+from matplotlib import rcParams, cycler
 
 def fwhm(x: np.ndarray, y: np.ndarray, height: float = 0.5) -> float:
     """
@@ -19,3 +20,25 @@ def fwhm(x: np.ndarray, y: np.ndarray, height: float = 0.5) -> float:
     xLower = np.interp(heightLevel, y[:indexMax], x[:indexMax])
     xUpper = np.interp(heightLevel, np.flip(y[indexMax:]), np.flip(x[indexMax:]))
     return xUpper - xLower
+
+def dark_plot():
+    """
+    Use a dark style for matplotlib plots.
+    """
+    rcParams['font.family'] = 'sans-serif'
+    rcParams['font.sans-serif'] = ['Helvetica', 'Arial', 'Verdana', 'DejaVu Sans', 'Liberation Sans', 'Bitstream Vera Sans', 'sans-serif']
+    rcParams['axes.prop_cycle'] = cycler(color=["cyan", "magenta", "orange", "purple"])
+    rcParams['font.family'] = 'sans-serif'
+    rcParams['font.sans-serif'] = ['Helvetica', 'Arial', 'Verdana', 'DejaVu Sans', 'Liberation Sans', 'Bitstream Vera Sans', 'sans-serif']
+    rcParams['figure.facecolor'] = 'black'
+    rcParams['figure.edgecolor'] = 'black'
+    rcParams['savefig.facecolor'] = 'black'
+    rcParams['savefig.edgecolor'] = 'black'
+    rcParams['axes.facecolor'] = 'black'
+    rcParams['text.color'] = 'white'
+    rcParams['axes.edgecolor'] = 'white'
+    rcParams['axes.labelcolor'] = 'white'
+    rcParams['xtick.color'] = 'white'
+    rcParams['ytick.color'] = 'white'
+    rcParams['grid.color'] = 'white'
+    rcParams['lines.color'] = 'white'
