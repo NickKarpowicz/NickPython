@@ -2,19 +2,15 @@ import numpy as np
 
 def fwhm(x: np.ndarray, y: np.ndarray, height: float = 0.5) -> float:
     """
-    Gives the full-width at half-maximum of data in a numpy array pair.
+    Gives the full-width at half-maximum of data described by x and y arrays.
 
-    :param x: The x-values (e.g. the scale of the vector; has the same units as the return value)
-    :type x: np.ndarray
+    Args:
+        x (np.ndarray): The x-values (e.g. the scale of the vector; has the same units as the return value)
+        y (np.ndarray): The y-values (to which half-maximum refers)
+        height (float): Instead of half-max, can optionally return height*max. Default is 0.5.
 
-    :param y: The y-values (to which half-maximum refers)
-    :type y: np.ndarray
-
-    :param height: Instead of half-max, can optionally return height*max (e.g. default 0.5)
-    :type height: float
-
-    :return: The full-width at half-max (units of x)
-    :rtype: float
+    Returns:
+        float: The full-width at half-max (units of x)
     """
     heightLevel = np.max(y) * height
     indexMax = np.argmax(y)
